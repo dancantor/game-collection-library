@@ -1,0 +1,26 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Your Collection</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div class="item-with-margin" *ngFor="let game of (gamesList$ | async)">
+      <app-game-item [currentGame]="game" (deleteGameEmitter)="onDeleteGame($event)" (updateGameEmitter)="onUpdateGame($event)">
+      </app-game-item>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <div class="button-container">
+      <ion-button (click)="navigateToAddPage()" shape="circle" class="ion-no-padding">
+        <ion-icon class="plus-icon" slot="icon-only" name="add-outline">
+
+        </ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

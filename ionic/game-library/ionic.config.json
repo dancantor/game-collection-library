@@ -1,0 +1,7 @@
+{
+  "name": "game-library",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

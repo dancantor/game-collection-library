@@ -1,0 +1,35 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="header-toolbar">
+    <ion-button class="ion-no-padding" fill="none" (click)="navigateBack()">Back</ion-button>
+    <ion-title class="ion-no-padding">{{(selectedGame$ | async).name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="transparent-toolbar"></div>
+  <div class="image-container">
+    <ion-avatar>
+      <img [src]="(selectedGame$ | async).picture">
+    </ion-avatar>
+  </div>
+  <div class="info-container">
+    <div class="header-container">
+      <ion-label class="producer">{{(selectedGame$ | async).producer}}</ion-label>
+      <ion-label class="platform-price">{{(selectedGame$ | async).platform}} - {{(selectedGame$ | async).price.priceValue}}{{(selectedGame$ | async).price.currency}}</ion-label>
+    </div>
+    <ion-label class="date-label">
+      Purchased on: <ion-label class="date-value">{{formatPurchaseDateWrapper((selectedGame$ | async).purchaseDate)}}</ion-label>
+    </ion-label>
+    <div></div>
+    <ion-label class="date-label">
+      Last time played: <ion-label class="date-value">{{formatLastTimePlayedWrapper((selectedGame$ | async).lastTimePlayed)}}</ion-label>
+    </ion-label>
+      <div class="label-with-icon">
+        <div>
+          Format
+        </div>
+        <img *ngIf="(selectedGame$ | async).formatOfGame === formatOfGameWrapper.DISK" src="assets/icon/disk.png">
+        <img *ngIf="(selectedGame$ | async).formatOfGame === formatOfGameWrapper.DIGITAL" src="assets/icon/digital.png">
+      </div>
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+<ion-item-sliding>
+  <ion-item-options side="start">
+    <ion-item-option (click)="onUpdateItem()" [style.width]="'80px'" color="primary"><ion-icon class="edit-icon" name="pencil-outline"></ion-icon></ion-item-option>
+  </ion-item-options>
+
+  <ion-item button [detail]="false" (click)="onItemClick()">
+    <ion-avatar slot="start">
+      <img [src]="currentGame.picture">
+    </ion-avatar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-label class='title'>{{currentGame.name}}</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label class='last-time-played'>Last played - {{formatLastTimeWrapper(currentGame.lastTimePlayed)}}</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label class="producer">{{currentGame.producer}}</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="last-row">
+        <ion-col size="6">
+          <ion-label class='platform'>{{currentGame.platform}}</ion-label>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label class='price'>{{currentGame.price.priceValue}}{{currentGame.price.currency}}</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-item-options side="end">
+      <ion-item-option (click)="onDeleteItem()" color="danger" [style.width]="'80px'"><ion-icon class="delete-icon" name="trash-outline"></ion-icon></ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>
